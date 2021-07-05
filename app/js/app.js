@@ -97,11 +97,8 @@ const buttonSave = document.querySelector(".screen__result__save");
 const buttonBlock = document.querySelector(".result_button");
 const saveNameButton = document.getElementById("save__name_button");
 const resultList = document.getElementById("rating");
-const result__screen = document.querySelector(".result__list");
 const tbody = document.querySelector(".list__item");
 const Input = document.querySelector(".name");
-console.log(Input);
-let listOfResult = [];
 
 resultList.addEventListener("click", () => {
   goToRatingPage(3);
@@ -123,32 +120,25 @@ saveNameButton.addEventListener("click", (e) => {
   if (Input.value === "") {
     Input.classList.toggle("input_err");
   } else {
-    getName();
     goToRatingPage(3);
-    addResult();
+    let run = writeResultToTable();
+    run() 
   }
 });
-function getName(e) {
+function writeResultToTable(e) {
+  let listOfResult = [];
   let nameInput = Input.value;
-  let = userObj = {};
-  userObj.user = nameInput;
-  userObj.number = score;
+  let userObj = {user:nameInput,number:score};
   listOfResult.push(userObj);
-}
-function addResult() {
-  listOfResult.map((item) => {
-    // let tr = document.createElement('tr')
-    // let td = document.createElement('td')
-    // let td_user = document.createElement('td')
-    // td_user.innerHTML = item.user
-    // td.innerHTML = item.number
-    // ul.append(tr)
-    // tr.append(td)
-    let tr = document.createElement("tr");
-    tr.innerHTML = `<td>${item.user}</td><td>${item.number}</td>`;
-    tbody.append(tr);
-    listOfResult = [];
-  });
+  return function addResult () {
+    listOfResult.map((item) => {
+      let tr = document.createElement("tr");
+      tr.innerHTML = `<td>${item.user}</td><td>${item.number}</td>`;
+      tbody.append(tr);
+      listOfResult = [];
+      score = 0;
+    });
+  }
 }
 const buttonRatingPage = document.querySelector(".screen__button");
 
