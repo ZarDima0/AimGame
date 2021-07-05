@@ -123,3 +123,33 @@ button {
   border-radius: 50%;
   cursor: pointer;
 }
+.list {
+  font-size: 2em;
+  &__item {
+    padding-right: 10px;
+    th {
+      padding-right:40px;
+    }
+    tr:hover {
+      background-color: #4f7577;
+      border: 0px;
+    }
+  }
+}
+.input_err{
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  font-size: 22px;
+  border: 2px solid #ff0606;
+}
+@media only screen 
+and (min-device-width : 375px) 
+and (max-device-width : 667px) { 
+.screen {
+  &__board {
+    height: 350px;
+    width: 350px;
+  }
+}
+}

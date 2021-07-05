@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>карточки</title>
     <link rel="stylesheet" href="css/style.min.css">
+    <link rel="shortcut icon" href="./images/favikon.png" type="image/x-icon">i
 </head>
 
 <body>
@@ -49,7 +50,7 @@
         <div class="save">
           <div class="save__result">
             <form action="">
-              <input type="text" placeholder="Введи имя" id='name'>
+              <input type="text" placeholder="Введи имя" class="name" id='name'>
               <button id="save__name_button"class = 'save__name_button' >Сохранить</button>
             </form>
           </div>
@@ -66,8 +67,15 @@
       <h1>Список результатов</h1>
     </div>
     <div class="list">
-      <table class="list__item" >
-        <tr><th>Имя</th><th>Счет</th></tr>
+      <table>
+        <thead>
+          <tr>
+            <th>Имя</th>
+            <th>Счет</th>
+          </tr>
+        </thead>
+        <tbody class="list__item"> 
+        </tbody>
       </table>
     </div>
 </div>
