@@ -8,6 +8,7 @@ const result = document.querySelector(".screen__result");
 const resultScore = document.querySelector(".result__span");
 const button = document.getElementById("newButton");
 
+console.log(button);
 let time = 0;
 let score = 0;
 let name;
@@ -84,6 +85,7 @@ const startGame = () => {
   }, timeInterval);
   timeEl.innerHTML = `00:${time}`;
 };
+
 button.addEventListener("click", () => {
   time = 0;
   score = 0;
@@ -95,7 +97,7 @@ button.addEventListener("click", () => {
 const saveResult = document.querySelector(".save");
 const buttonSave = document.querySelector(".screen__result__save");
 const buttonBlock = document.querySelector(".result_button");
-const saveNameButton = document.getElementById("save__name_button");
+let form = document.getElementById("form");
 const resultList = document.getElementById("rating");
 const tbody = document.querySelector(".list__item");
 const Input = document.querySelector(".name");
@@ -114,31 +116,38 @@ buttonSave.addEventListener("click", () => {
   buttonBlock.style.display = "none";
   saveResult.style.display = "flex";
 });
-
-saveNameButton.addEventListener("click", (e) => {
+let userObj = {};
+form.addEventListener("submit", (e) => {
   e.preventDefault();
   if (Input.value === "") {
     Input.classList.toggle("input_err");
   } else {
     goToRatingPage(3);
     let run = writeResultToTable();
-    run() 
+    run();
+    score = 0;
   }
 });
 function writeResultToTable(e) {
   let listOfResult = [];
   let nameInput = Input.value;
-  let userObj = {user:nameInput,number:score};
+  let userObj = { user: nameInput, number: score };
+  console.log(userObj);
   listOfResult.push(userObj);
-  return function addResult () {
-    listOfResult.map((item) => {
-      let tr = document.createElement("tr");
-      tr.innerHTML = `<td>${item.user}</td><td>${item.number}</td>`;
-      tbody.append(tr);
-      listOfResult = [];
-      score = 0;
-    });
-  }
+  return function addResult() {
+    let data = new FormData();
+    data.append("data", JSON.stringify(userObj));
+    let promise = fetch("./vender/get.php", {
+      method: "POST",
+      body: data,
+    })
+      .then((response) => {
+        return response.text();
+      })
+      .then((data) => {
+        tbody.innerHTML = data;
+      });
+  };
 }
 const buttonRatingPage = document.querySelector(".screen__button");
 

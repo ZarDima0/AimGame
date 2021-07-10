@@ -1,15 +1,15 @@
-@import url('https://fonts.googleapis.com/css?family=Khula&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Khula&display=swap");
 
 * {
   box-sizing: border-box;
 }
 @mixin button {
   background-color: transparent;
-  border: 2px solid #C0C0C0;
+  border: 2px solid #c0c0c0;
   color: #fff;
   cursor: pointer;
   font-family: inherit;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   font-size: 1.5rem;
 }
 h1 {
@@ -18,7 +18,7 @@ h1 {
 }
 body {
   color: #fff;
-  font-family: 'Khula', sans-serif;
+  font-family: "Khula", sans-serif;
   height: 100vh;
   overflow: hidden;
   margin: 0;
@@ -26,7 +26,7 @@ body {
 }
 
 .result__span {
-  margin-left: 10px; 
+  margin-left: 10px;
 }
 
 .screen {
@@ -37,7 +37,7 @@ body {
   height: 100vh;
   width: 100vw;
   transition: margin 0.5s ease-out;
-  background: linear-gradient(90deg, #29323C 0%, #485563 100%);
+  background: linear-gradient(90deg, #29323c 0%, #485563 100%);
   &__title {
     line-height: 1.4;
     font-size: 4rem;
@@ -48,7 +48,7 @@ body {
     font-size: 40px;
   }
   &__start:hover {
-    color: #16D9E3;
+    color: #16d9e3;
   }
   &__time-list {
     display: flex;
@@ -59,42 +59,42 @@ body {
   }
   &__time-btn {
     margin: 10px;
-    @include button()
-    
+    @include button();
   }
   &__board {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  width: 500px;
-  height: 500px;
-  background: linear-gradient(118.38deg, #29323C -4.6%, #485563 200.44%);
-  box-shadow: -8px -8px 20px #2A333D, 10px 7px 20px #475462;
-  border-radius: 30px;
-  overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 500px;
+    height: 500px;
+    background: linear-gradient(118.38deg, #29323c -4.6%, #485563 200.44%);
+    box-shadow: -8px -8px 20px #2a333d, 10px 7px 20px #475462;
+    border-radius: 30px;
+    overflow: hidden;
   }
   &__result {
     &__span {
       margin-left: 10px;
     }
     &__new {
-      @include button()
+      @include button();
     }
     &__save {
-      @include button()
+      @include button();
     }
   }
-
 }
 .save {
   display: none;
   justify-content: center;
   &__name_button {
-    @include button()
+    @include button();
   }
   &__result {
-    input:active, :hover, :focus {
+    input:active,
+    :hover,
+    :focus {
       outline: 0;
       outline-offset: 0;
     }
@@ -105,20 +105,20 @@ body {
       font-size: 22px;
     }
     input:hover {
-      border: 2px solid #16D9E3;
-      color: #16D9E3;
+      border: 2px solid #16d9e3;
+      color: #16d9e3;
     }
   }
 }
 button:hover {
-  border: 2px solid #16D9E3;
-  color: #16D9E3;
+  border: 2px solid #16d9e3;
+  color: #16d9e3;
 }
 button {
-  @include button()
+  @include button();
 }
 .circle {
-  background: linear-gradient(90deg, #16D9E3 0%, #30C7EC 47%, #46AEF7 100%);
+  background: linear-gradient(90deg, #16d9e3 0%, #30c7ec 47%, #46aef7 100%);
   position: absolute;
   border-radius: 50%;
   cursor: pointer;
@@ -128,7 +128,7 @@ button {
   &__item {
     padding-right: 10px;
     th {
-      padding-right:40px;
+      padding-right: 40px;
     }
     tr:hover {
       background-color: #4f7577;
@@ -136,20 +136,18 @@ button {
     }
   }
 }
-.input_err{
+.input_err {
   padding: 12px 20px;
   margin: 8px 0;
   box-sizing: border-box;
   font-size: 22px;
   border: 2px solid #ff0606;
 }
-@media only screen 
-and (min-device-width : 375px) 
-and (max-device-width : 667px) { 
-.screen {
-  &__board {
-    height: 350px;
-    width: 350px;
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
+  .screen {
+    &__board {
+      height: 350px;
+      width: 350px;
+    }
   }
-}
 }

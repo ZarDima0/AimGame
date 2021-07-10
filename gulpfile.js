@@ -7,7 +7,7 @@ const autoprefixer = require("gulp-autoprefixer");
 
 function browsersync() {
   browserSync.init({
-    server: { baseDir: "app/" },
+    proxy: "game/app/",
   });
 }
 
@@ -29,7 +29,7 @@ function build() {
 }
 function watching() {
   watch(["app/scss/**/*.scss"], styles);
-  watch(["app/*.html"]).on("change", browserSync.reload);
+  watch(["app/**.php"]).on("change", browserSync.reload);
 }
 
 exports.styles = styles;
